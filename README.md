@@ -36,6 +36,6 @@ The number from 0 to 14 indicates the corresponding register, 15 stands for the 
 While using a conditional operation the destination is used as a number which is going to be loaded into the counter. If you mention the destination byte as a register or memory address its content is loaded into the counter.
 
 
-#### You can use [this](https://hexed.it/) editor to create the binary code .
+#### You can run the sample program fib.bin which prints the i_th element of the fibonacci sequence starting from the zeroth. You can also use [this](https://hexed.it/) editor to create the binary code .
 
 
