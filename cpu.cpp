@@ -28,12 +28,8 @@ CPU::decoded_instruction CPU::decode (word instr) {
     byte byte_2 = *(getByte(instr, 2));
     byte byte_3 = *(getByte(instr, 3));
     Argument* arg;
-    res.opcode = (operations)(byte_3 & 0x0F);
-    res.arg1_is_imm = (byte_3 & 0x80);
-    res.arg2_is_imm = (byte_3 & 0x40);
-    res.arg1_is_mem = (byte_3 & 0x20);
-    res.dest_is_mem = (byte_3 & 0x10);
-
+    res.set_opcode(byte_3);
+    res.set_params(byte_3);
 
     if (res.arg1_is_imm && res.arg1_is_mem) {
         std::cerr << "No such instruction!" << std::endl;
@@ -73,7 +69,7 @@ CPU::decoded_instruction CPU::decode (word instr) {
 
     if (res.dest_is_mem) {
         arg = new Mem_arg;
-        if (byte_0 & 0x08) {
+        if (byte_3 & 0x08) { // if (conditional operation)
             res.dest = memory->read(byte_0);
         } else {
             res.dest = arg->interprete(byte_0, this);

@@ -37,6 +37,15 @@ class CPU {
             word arg1;
             word arg2;
             word* dest;
+            void set_opcode (byte b) {
+                opcode = (operations)(b & 0x0F);
+            }
+            void set_params (byte b) {
+                arg1_is_imm = (b & 0x80);
+                arg2_is_imm = (b & 0x40);
+                arg1_is_mem = (b & 0x20);
+                dest_is_mem = (b & 0x10);
+            }
         };
 
         word fetch ();
