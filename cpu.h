@@ -2,12 +2,13 @@
 #define CPU_H
 
 #include <iostream>
-#include "io.h"
+#include "config.h"
+#include "input.h"
+#include "output.h"
 #include "memory.h"
 
 
-typedef unsigned int word;
-typedef unsigned char byte;
+
 const unsigned int reg_count = 16;
 const unsigned int counter_id = 15;
 

@@ -4,7 +4,8 @@
 #include <iostream>
 #include "memory.h"
 #include "cpu.h"
-#include "io.h"
+#include "input.h"
+#include "output.h"
 
 class Argument {
     public:
